@@ -44,23 +44,16 @@ router.post('/login', (req, res) => {
     });
 });
 
-// GET /api/users
+// Stretch goal only returns same department
+// GET /api/users by department
 router.get('/users', restricted, (req, res) => {
   const { username, department } = req.decodedToken;
 
-  if (department === 'emergency') {
-    Users.find()
-      .then(users => {
-        res.json({ loggedUser: username, department, users})
-      })
-      .catch(err => res.status(500).send(err))
-  } else {
     Users.findBy({ department })
       .then(users => {
         res.json({ loggedUser: username, department, users});
       })
       .catch(err => res.status(500).send(err))
-  }
 });
 
 function generateToken(user) {
