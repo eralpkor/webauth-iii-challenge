@@ -28,6 +28,12 @@
     "sqlite3": "^4.1.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.4",
+    "supertest": "^4.0.2"
+  },
+  "test": "jest --watch --verbose",
+  "jest": {
+    "testEnvirnoment": "node"
   }
 }
